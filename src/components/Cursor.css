@@ -1,0 +1,75 @@
+/* hide native cursor */
+body {
+  cursor: none;
+}
+
+.trail-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+/* main small cursor point */
+.trail-main {
+  width: 8px;
+  height: 6px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+/* ghost dots with fading size/opacity */
+.trail-ghost {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(199, 138, 255, 0.5);
+  filter: blur(4px);
+}
+
+/* make later dots smaller / more transparent using nth-child */
+.trail-ghost:nth-of-type(2) {
+  opacity: 0.9;
+}
+.trail-ghost:nth-of-type(3) {
+  opacity: 0.8;
+}
+.trail-ghost:nth-of-type(4) {
+  opacity: 0.7;
+}
+.trail-ghost:nth-of-type(5) {
+  opacity: 0.6;
+}
+.trail-ghost:nth-of-type(6) {
+  opacity: 0.5;
+}
+.trail-ghost:nth-of-type(7) {
+  opacity: 0.4;
+}
+.trail-ghost:nth-of-type(8) {
+  opacity: 0.3;
+}
+.trail-ghost:nth-of-type(9) {
+  opacity: 0.2;
+}
+
+/* FIRE MODE COLORS */
+body.fire-mode .trail-main {
+  background: #ffd1a3;
+}
+
+body.fire-mode .trail-ghost {
+  background: rgba(255, 120, 80, 0.75);
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
+  .trail-dot {
+    display: none;
+  }
+}
