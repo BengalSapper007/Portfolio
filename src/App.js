@@ -1,10 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route,Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import About from './components/About';
 import SkillsLanguagesPage from './components/SkillsLanguages';
-import ExperienceProjectsEducationPage from './components/Journey';
 import Journey from './components/Journey';
 import GalleryPage from './components/GalleryPage';
 import Contacts from './components/Contact';
