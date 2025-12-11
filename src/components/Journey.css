@@ -239,8 +239,6 @@
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
 }
 
-/* education */
-
 .edu-list {
   display: flex;
   flex-direction: column;
@@ -264,18 +262,16 @@
 }
 
 .edu-chip-badge {
-  min-width: 52px;
-  border-radius: 14px;
-  background: #03020b;
-  color: var(--accent-main);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 0.4rem 0.3rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.08rem;
+  justify-content: center;
+}
+
+.edu-chip-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .edu-chip-main h5 {

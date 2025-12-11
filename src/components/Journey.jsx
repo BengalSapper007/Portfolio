@@ -9,7 +9,7 @@ const experiences = [
     type: "Part-Time",
     period: "6/2023 - 1/2025",
     location: "Chennai, Tamil Nadu, India",
-    logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1760000484/WhatsApp_Image_2025-09-19_at_12.44.43_38209553_ip6hxb.jpg",
+    logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765468356/image_2025-12-11_212234589_aseclj.png",
     detail:
       "My journey as a coach began on the dojo floor—helping students refine their kata, pushing them through kumite drills, and guiding them with the same discipline I grew up learning. I worked with children and young adults, mentoring them through grading exams and the pressure of tournaments. Over time, I wasn’t just teaching techniques; I was helping them build confidence, focus, and resilience. This experience shaped my leadership style, teaching me how to connect, motivate, and bring out the best in every student."
   },
@@ -20,7 +20,7 @@ const experiences = [
     type: "Part-Time",
     period: "1/2024 - Present",
     location: "Chennai, Tamil Nadu, India",
-    logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1760000484/WhatsApp_Image_2025-09-19_at_12.44.43_38209553_ip6hxb.jpg",
+    logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765468437/image_2025-12-11_212355698_uosi1i.png",
     detail:
       "Training at a Silambam academy gave me a completely different rhythm—rooted in tradition, movement, and precision. As an assistant coach, I helped students understand the flow of weapon handling, the patience behind every stance, and the discipline that this centuries-old martial art demands. Guiding students through sparring sessions, basics, and competition preparation taught me how to balance firmness with encouragement. Managing this role alongside academics strengthened my consistency, time management, and the satisfaction of watching students grow with every session."
   },
@@ -31,7 +31,7 @@ const experiences = [
   type: "Internship",
   period: "6/2025 - 7/2025",
   location: "Chennai, Tamil Nadu, India",
-  logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1760000484/WhatsApp_Image_2025-09-19_at_12.44.43_38209553_ip6hxb.jpg",
+  logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765468255/image_2025-12-11_212053879_nqbixz.png",
   detail:
     "This internship is where I built my foundation in Java development—starting with simple command-line programs and gradually moving into monolithic applications before stepping into the world of full-fledged microservices. Working with real engineering teams, I learned how to structure services, debug production-level issues, and follow clean coding practices. Exposure to agile workflows, code reviews, and collaborative development gave me a strong understanding of how enterprise-level software is built, tested, and deployed."
   }
@@ -58,7 +58,7 @@ const projects = [
 const education = [
   {
     id: "ed-1",
-    short: "SRM\nIST",
+    logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765470737/image_2025-12-11_220216014_iehvhc.png",
     institution: "SRM IST Chennai",
     level: "Bachelor of Technology - BTech",
     period: "2023 - 2027",
@@ -67,7 +67,7 @@ const education = [
   },
   {
     id: "ed-2",
-    short: "Bala\nVidy",
+    logo: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765470631/image_2025-12-11_220028152_ttdktj.png",
     institution: "Bala Vidya Mandir",
     level: "High School",
     period: "2018 - 2023",
@@ -75,6 +75,7 @@ const education = [
       "Higher secondary with a focus on science and mathematics, alongside national‑level martial arts and co‑curricular activities.",
   },
 ];
+
 
 function Journey() {
   const [openSection, setOpenSection] = useState(null);
@@ -246,9 +247,11 @@ function Journey() {
                     }
                   >
                     <div className="edu-chip-badge">
-                      {item.short.split("\n").map((line) => (
-                        <span key={line}>{line}</span>
-                      ))}
+                      <img
+                        src={item.logo}
+                        alt={item.institution}
+                        className="edu-chip-logo"
+                      />
                     </div>
                     <div className="edu-chip-main">
                       <h5>{item.institution}</h5>
