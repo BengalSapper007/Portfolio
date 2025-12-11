@@ -1,9 +1,7 @@
 .home {
-  margin-top: 13vh;
+  margin-top: 5vh;
   min-height: 100vh;
 }
-
-/* HERO */
 
 .home-hero {
   max-width: 1100px;
@@ -96,8 +94,6 @@
   gap: 0.7rem;
 }
 
-/* buttons */
-
 .home-btn {
   padding: 0.55rem 1.3rem;
   border-radius: 999px;
@@ -125,8 +121,6 @@
   transform: translateY(-2px);
   box-shadow: var(--shadow-strong);
 }
-
-/* STATS */
 
 .home-stats {
   max-width: 1100px;
@@ -167,8 +161,6 @@
   color: var(--text-soft);
 }
 
-/* BENTO GRID */
-
 .home-bento {
   max-width: 1100px;
   margin: 0 auto;
@@ -191,15 +183,11 @@
   color: var(--text-muted);
 }
 
-/* grid layout */
-
 .home-bento-grid {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   gap: 1.4rem;
 }
-
-/* tiles */
 
 .bento-tile {
   position: relative;
@@ -247,10 +235,8 @@
   color: var(--accent-main);
 }
 
-/* tweak individual tiles if you want */
 
 .bento-journey {
-  /* can span more columns later if you like */
 }
 
 .bento-projects {
@@ -259,7 +245,6 @@
 .bento-gallery {
 }
 
-/* RESPONSIVE */
 
 @media (max-width: 960px) {
   .home-hero {

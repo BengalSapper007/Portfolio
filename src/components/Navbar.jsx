@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import WhoamiBar from "./WhoamiBar";
 import { NavLink } from "react-router-dom";
-import { registerHintSetter } from "./hintBus";   
+import { registerHintSetter } from "./hintBus";
 import { markEggUsed } from "./easterEggState";
 
 const links = [
@@ -17,6 +17,7 @@ const links = [
 function Navbar() {
   const [whoamiOpen, setWhoamiOpen] = useState(false);
   const [logoHint, setLogoHint] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // NEW
 
   useEffect(() => {
     registerHintSetter(setLogoHint);
@@ -38,9 +39,19 @@ function Navbar() {
     }, 10000);
   };
 
+  const handleToggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleNavLinkClick = () => {
+    // close mobile menu when a link is tapped
+    setMenuOpen(false);
+  };
+
   return (
     <>
-      <nav className="nav">
+      {/* add 'open' class when menuOpen is true */}
+      <nav className={`nav ${menuOpen ? "open" : ""}`}>
         <NavLink
           to="/"
           className="logo"
@@ -53,11 +64,24 @@ function Navbar() {
           {logoHint && <span className="logo-tooltip">click for whoami</span>}
         </NavLink>
 
+        {/* HAMBURGER BUTTON */}
+        <button
+          className="nav-toggle"
+          type="button"
+          aria-label="Toggle navigation"
+          onClick={handleToggleMenu}
+        >
+          <span className="bar" />
+          <span className="bar" />
+          <span className="bar" />
+        </button>
+
         <ul className="nav-items">
           {links.map((link) => (
             <li key={link.label}>
               <NavLink
                 to={link.to}
+                onClick={handleNavLinkClick}
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
