@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 2vh;
 }
 
 .contact-top {
@@ -66,7 +67,6 @@
   border-color: rgba(235, 201, 255, 0.95);
 }
 
-/* primary channels */
 
 .channel-row {
   display: flex;
@@ -139,7 +139,6 @@
   color: var(--accent-main);
 }
 
-/* CTA panel */
 
 .contact-panel-cta {
   background: radial-gradient(circle at top right, #25101f, #050514);

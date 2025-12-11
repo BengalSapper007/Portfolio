@@ -1,7 +1,7 @@
 .gal {
   min-height: 100vh;
   max-width: 1200px;
-  margin: 20px auto;
+  margin: 2vh auto;
   padding: 4.5rem 1.5rem 5rem;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,6 @@
   color: var(--text-muted);
 }
 
-/* mini previews */
 
 .gal-grid {
   width: 100%;
@@ -95,7 +94,6 @@
   );
 }
 
-/* detail panel */
 
 .gal-detail {
   margin-top: 2.4rem;
@@ -147,7 +145,6 @@
   text-justify: inter-word;
 }
 
-/* animation */
 
 @keyframes galDetailIn {
   0% {
@@ -160,7 +157,6 @@
   }
 }
 
-/* responsive */
 
 @media (max-width: 900px) {
   .gal-detail {
