@@ -17,7 +17,7 @@
   --shadow-strong: 0 22px 52px rgba(211, 177, 227, 0.6);
 }
 
-/* optional alt theme */
+
 body.fire-mode {
   --bg-main: #1b0c00;
   --bg-card: #3b0500;
@@ -117,4 +117,26 @@ img {
 * {
   scrollbar-width: thin;
   scrollbar-color: #b88bff #050510; /* thumb track */
+}
+
+.bg-gradient-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 20%, #9a6bff 0, transparent 45%),
+              radial-gradient(circle at 80% 30%, #ff75df 0, transparent 45%),
+              radial-gradient(circle at 20% 80%, #ff9f43 0, transparent 45%);
+  opacity: 0.28;
+  filter: blur(40px);
+  animation: bgDrift 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(-40px, 30px, 0) scale(1.1);
+  }
 }

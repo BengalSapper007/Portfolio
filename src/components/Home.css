@@ -1,5 +1,5 @@
 .home {
-  margin-top: 5vh;
+  margin-top: 0vh;
   min-height: 100vh;
 }
 
@@ -244,6 +244,7 @@
 
 .bento-gallery {
 }
+
 
 
 @media (max-width: 960px) {
