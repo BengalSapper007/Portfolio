@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+Pinak Mukherjee – Portfolio
+A responsive, production‑ready developer portfolio showcasing cybersecurity, backend engineering, coaching, and fire performance – built as a real‑world React SPA and deployed on Netlify.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live site: https://pinak-mukherjee.netlify.app
+Repository: https://github.com/BengalSapper007/Portfolio
 
-## Available Scripts
+Features
+Responsive UI, mobile‑first
+Custom navigation bar with animated hover states, mobile hamburger menu, and smooth scrolling across all sections.
 
-In the project directory, you can run:
+Terminal‑style whoami easter egg
+Clicking the logo triggers a timed “fire mode” animation and a whoami bar that adapts cleanly on small screens.
 
-### `npm start`
+Structured journey, projects, and education
+Interactive panels for experience, projects, and education using chips with institution logos and detailed write‑ups.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+React Router SPA with safe refresh
+All routes (/, /about, /skills, /journey, /gallery, /contact) handled client‑side with Netlify redirects configured to avoid 404s on reload.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Netlify CI‑style deployment
+GitHub → Netlify pipeline with automatic builds on push using npm run build.
 
-### `npm test`
+Tech Stack
+Framework: React
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Routing: React Router
 
-### `npm run build`
+Styling: Custom CSS (flexbox, media queries, animations)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Deployment: Netlify (continuous deployment from GitHub)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Tooling: Git, GitHub, Cloudinary for hosted assets
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Getting Started
+Prerequisites
+Node.js (LTS) and npm
 
-### `npm run eject`
+Git
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Clone and install
+bash
+git clone https://github.com/BengalSapper007/Portfolio.git
+cd Portfolio
+npm install
+Run locally
+bash
+npm start
+The app will run at http://localhost:3000.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Build for production
+bash
+npm run build
+This creates an optimized production build in the build directory.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Deployment (Netlify)
+This project is configured for Netlify continuous deployment from the main branch.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Netlify build settings:
 
-## Learn More
+Build command: npm run build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Publish directory: build
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For React Router support, the public/_redirects file contains:
 
-### Code Splitting
+text
+/* /index.html 200
+This ensures all routes are served through index.html so refresh and deep links work correctly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Project Structure
+text
+src/
+  components/
+    Navbar/
+      Navbar.jsx
+      Navbar.css
+    WhoamiBar/
+      WhoamiBar.jsx
+      WhoamiBar.css
+    ...
+  pages/
+    Home.jsx
+    About.jsx
+    Skills.jsx
+    Journey.jsx
+    Gallery.jsx
+    Contact.jsx
+  data/
+    education.js
+    experience.js
+    projects.js
+  App.jsx
+  index.jsx
+public/
+  _redirects
+Key pieces:
 
-### Analyzing the Bundle Size
+Navbar – Fixed, fire‑themed nav with React Router links, mobile hamburger, and active state styling.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+WhoamiBar – Animated terminal bar with cursor blink and responsive wrapping on narrow viewports.
 
-### Making a Progressive Web App
+Journey / Education – Panel shell with clickable chips, institution logos, and detail text.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Customization
+Update experience, education, and project content in src/data/*.js.
 
-### Advanced Configuration
+Swap institution logos by changing the logo URLs in education.js.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Tweak colors, gradients, and animations via the .css files to match your branding.
 
-### Deployment
+Roadmap
+Hook contact section to a backend or email service.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Add light/dark theme toggle.
 
-### `npm run build` fails to minify
+Integrate basic analytics to understand visitor interactions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+This portfolio is primarily for personal use and showcasing work.
+If you intend to reuse or adapt parts of it, please attribute the original author: Pinak Mukherjee.
