@@ -48,7 +48,7 @@ function Navbar() {
     setMenuOpen(false);
   };
 
-  return (
+  return (  
     <>
       {/* add 'open' class when menuOpen is true */}
       <nav className={`nav ${menuOpen ? "open" : ""}`}>

@@ -43,15 +43,30 @@ const projects = [
     id: "pr-1",
     title: "Online Threat Identification System",
     summary: "Browser extension for detecting hate and harmful content.",
-    detail:
-      "Takes highlighted or typed text and classifies it as Positive, Neutral, or Hate using a trained model and confidence score. Focus on online safety, moderation workflows, and packaging ML into a usable extension.",
+    detail: [
+      "Classifies text as Positive, Neutral, or Hate using trained models.",
+      "Focuses on online safety and moderation workflows.",
+      "Packaged as a lightweight, usable browser extension."
+    ],
+    tech: [
+      "Built with Python, NLP, TF-IDF, and Logistic Regression.",
+      "Processed 10k+ labeled samples with 90.75% accuracy.",
+      "Future implementation: Emotion-aware chat assistants."
+    ],
   },
   {
     id: "pr-2",
     title: "MoodScrybe – Emotion Detector",
     summary: "NLP pipeline that tags messages with one of six emotions.",
-    detail:
-      "Uses NLTK preprocessing, TF‑IDF features, and classic ML models. Logistic Regression reached around 90% validation accuracy on a 10k+ dataset, designed for emotion-aware assistants and analytics dashboards.",
+    detail: [
+      "Uses NLTK preprocessing and TF‑IDF features.",
+      "Achieved ~90% validation accuracy on a 10k+ dataset.",
+      "Designed for integration with analytics dashboards."
+    ],
+    tech: [
+      "Logistic Regression and classic ML models.",
+      "End-to-end NLP pipeline for emotion tagging."
+    ]
   },
 ];
 
@@ -91,7 +106,6 @@ function Journey() {
   };
 
   const selectedXp = experiences.find((x) => x.id === selectedXpId) || null;
-  const selectedPr = projects.find((p) => p.id === selectedPrId) || null;
   const selectedEd = education.find((e) => e.id === selectedEdId) || null;
 
   return (
@@ -198,31 +212,51 @@ function Journey() {
                 <p>Click a project to reveal what runs under the hood.</p>
               </div>
               <div className="proj-list">
-                {projects.map((project) => (
-                  <button
-                    key={project.id}
-                    className={`proj-chip ${
-                      selectedPrId === project.id ? "chip-active" : ""
-                    }`}
-                    onClick={() =>
-                      setSelectedPrId((prev) =>
-                        prev === project.id ? null : project.id
-                      )
-                    }
-                  >
-                    <h5>{project.title}</h5>
-                    <p>{project.summary}</p>
-                  </button>
-                ))}
-              </div>
-            </section>
+  {projects.map((project) => (
+    <React.Fragment key={project.id}>
+      <button
+        className={`proj-chip ${selectedPrId === project.id ? "chip-active" : ""}`}
+        onClick={() => setSelectedPrId(prev => (prev === project.id ? null : project.id))}
+      >
+        <div className="proj-chip-content">
+          <h5>{project.title}</h5>
+          <p>{project.summary}</p>
+        </div>
+        {/* Visual indicator for the accordion */}
+        <span className={`accordion-arrow ${selectedPrId === project.id ? "arrow-rotate" : ""}`}>
+          ▾
+        </span>
+      </button>
 
-            {selectedPr && (
-              <div className="detail-panel">
-                <h5>{selectedPr.title}</h5>
-                <p>{selectedPr.detail}</p>
+      <div className={`accordion-wrapper ${selectedPrId === project.id ? "is-open" : ""}`}>
+        <div className="accordion-content">
+          <div className="inline-detail-panel">
+            <div className="detail-block">
+              <div className="block-label">
+                <span className="detail-icon">💠</span>
+                <h6>OVERVIEW</h6>
               </div>
-            )}
+              <ul className="modern-list">
+                {project.detail.map((point, i) => <li key={i}>{point}</li>)}
+              </ul>
+            </div>
+
+            <div className="detail-block">
+              <div className="block-label">
+                <span className="detail-icon">💠</span>
+                <h6>TECH STACK</h6>
+              </div>
+              <ul className="modern-list">
+                {project.tech.map((point, i) => <li key={i}>{point}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </React.Fragment>
+  ))}
+</div>
+            </section>
           </>
         )}
 
