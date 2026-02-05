@@ -8,6 +8,13 @@
 
 /* ---------- GLOBAL THEME & RESET ---------- */
 
+*,
+*::before,
+*::after {
+  cursor: none !important;
+}
+
+
 :root {
   --bg-main: #000000;
   --bg-card: #080810;
