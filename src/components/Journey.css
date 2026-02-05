@@ -1,0 +1,443 @@
+/* ==========================
+   PAGE LAYOUT
+========================== */
+
+.journey-page {
+  min-height: 100vh;
+  max-width: 1100px;
+  margin: 2vh auto;
+  padding: 6rem 1.5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.journey-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.journey-header h2 {
+  color: var(--accent-main);
+  margin-bottom: 0.35rem;
+}
+
+.journey-header p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.journey-underline {
+  width: 200px;
+  height: 4px;
+  border-radius: 999px;
+  margin: 0.6rem auto 1.2rem;
+  background: var(--accent-underline);
+}
+
+/* ==========================
+   SECTION SELECTOR CARDS
+========================== */
+
+.journey-chooser {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-bottom: 2.7rem;
+}
+
+.journey-card {
+  position: relative;
+  padding: 1.8rem 1.6rem;
+  border-radius: 20px;
+  border: 1px solid rgba(211, 177, 227, 0.4);
+  background:
+    radial-gradient(circle at top left, rgba(211, 177, 227, 0.14), transparent 55%),
+    rgba(5, 5, 18, 0.9);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.18s ease;
+  color: var(--text-soft);
+}
+
+.journey-card h3 {
+  font-size: 1.15rem;
+  color: var(--accent-main);
+}
+
+.journey-card p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.journey-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.journey-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.9);
+}
+
+.journey-active {
+  border-color: var(--accent-main);
+  background:
+    radial-gradient(circle at top left, rgba(211, 177, 227, 0.3), transparent 55%),
+    rgba(7, 7, 22, 0.95);
+}
+
+/* ==========================
+   PANEL SHELL
+========================== */
+
+.journey-panels {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.panel-shell {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  border-radius: 22px;
+  background: rgba(5, 5, 18, 0.92);
+  border: 1px solid rgba(211, 177, 227, 0.4);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(18px) saturate(140%);
+  animation: panelFadeIn 0.25s ease-out;
+}
+
+.panel-header {
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+.panel-header h4 {
+  font-size: 1.25rem;
+  color: var(--accent-main);
+  margin-bottom: 0.25rem;
+}
+
+.panel-header p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ==========================
+   ACCORDION LIST
+========================== */
+
+.proj-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+/* Accordion Button */
+.proj-chip {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(211, 177, 227, 0.18);
+  background: radial-gradient(circle at top left, #151025, #050514);
+  padding: 0.95rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
+  transition: all 0.15s ease;
+}
+
+.proj-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
+}
+
+.proj-chip h5 {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+  color: var(--accent-main);
+}
+
+.proj-chip p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.chip-active {
+  border-color: var(--accent-main);
+  background:
+    radial-gradient(circle at top left, rgba(211, 177, 227, 0.35), #050514);
+}
+
+/* Arrow */
+.accordion-arrow {
+  font-size: 1.5rem;
+  color: #4facfe;
+  transition: transform 0.3s ease;
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+/* ==========================
+   ACCORDION CONTENT
+========================== */
+
+.accordion-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  margin-left: 18px;
+}
+
+.accordion-wrapper.is-open {
+  grid-template-rows: 1fr;
+}
+
+.accordion-content {
+  min-height: 0;
+}
+
+/* Inner Detail Panel */
+.inline-detail-panel {
+  background: rgba(20, 20, 35, 0.45);
+  border-left: 2px solid #4facfe;
+  padding: 16px 20px 20px;
+  border-radius: 0 0 12px 12px;
+  margin: 6px 8px 14px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.accordion-wrapper.is-open .inline-detail-panel {
+  opacity: 1;
+}
+
+/* ==========================
+   DETAIL BLOCKS
+========================== */
+
+.detail-block {
+  margin-bottom: 18px;
+}
+
+.block-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.block-label h6 {
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  color: #9a9a9a;
+  margin: 0;
+}
+
+/* Bullet List */
+.modern-list {
+  list-style: none;
+  padding-left: 25px;
+  margin: 0;
+}
+
+.modern-list li {
+  color: #d0d0d0;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.modern-list li::before {
+  content: ">";
+  position: absolute;
+  left: -20px;
+  color: #4facfe;
+  font-weight: bold;
+}
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes panelFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 960px) {
+  .journey-chooser {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .journey-page {
+    padding-top: 5rem;
+  }
+}
+
+/* ==============================
+   FORCE UNIFIED PROJECT STYLE
+   (Experience + Education Fix)
+================================ */
+
+/* Disable old layouts completely */
+.xp-list,
+.edu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+
+/* Re-apply project chip styling */
+.xp-chip,
+.edu-chip,
+.proj-chip {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(211, 177, 227, 0.18);
+  background: radial-gradient(circle at top left, #151025, #050514);
+  padding: 0.95rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.9);
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+              border-color 0.15s ease, background 0.15s ease;
+}
+
+.xp-chip:hover,
+.edu-chip:hover,
+.proj-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.95);
+}
+
+/* Text inside chips */
+.xp-chip h5,
+.edu-chip h5,
+.proj-chip h5 {
+  font-size: 1rem;
+  margin-bottom: 0.15rem;
+  color: var(--accent-main);
+}
+
+.xp-chip p,
+.edu-chip p,
+.proj-chip p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+/* Active state */
+.xp-chip.chip-active,
+.edu-chip.chip-active,
+.proj-chip.chip-active {
+  border-color: var(--accent-main);
+  background:
+    radial-gradient(circle at top left, rgba(211, 177, 227, 0.35), #050514);
+}
+
+/* ==============================
+   ACCORDION CONTENT — SHARED
+================================ */
+
+.xp-chip + .accordion-wrapper,
+.edu-chip + .accordion-wrapper,
+.proj-chip + .accordion-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  margin-left: 18px;
+}
+
+.xp-chip + .accordion-wrapper.is-open,
+.edu-chip + .accordion-wrapper.is-open,
+.proj-chip + .accordion-wrapper.is-open {
+  grid-template-rows: 1fr;
+}
+
+/* Inner detail panel */
+.inline-detail-panel {
+  background: rgba(20, 20, 35, 0.45);
+  border-left: 2px solid #4facfe;
+  padding: 16px 20px 20px;
+  border-radius: 0 0 12px 12px;
+  margin: 6px 8px 14px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.accordion-wrapper.is-open .inline-detail-panel {
+  opacity: 1;
+}
+
+/* Remove old XP/EDU decorations */
+.xp-chip-logo,
+.edu-chip-logo,
+.xp-meta-footer,
+.xp-chip-left,
+.xp-chip-right {
+  display: none !important;
+}
+
+/* =========================
+   ACCORDION BRAND BLOCK
+========================= */
+
+.accordion-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(211, 177, 227, 0.15);
+}
+
+.accordion-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 4px;
+}
+
+.accordion-brand h5 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--accent-main);
+}
+
+.accordion-brand p {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
