@@ -11,12 +11,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <AnimatedOrbs />
-        <SplashCursor />
-        <Cursor />
-        <Navbar />
-        <ScrollToTop />
-        <AnimatedRoutes />
+          <AnimatedOrbs />
+          <SplashCursor />
+          <Cursor />
+          <Navbar />
+          <ScrollToTop />
+          <AnimatedRoutes />
       </BrowserRouter>
     </div>
   );

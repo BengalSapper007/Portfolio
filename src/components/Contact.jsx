@@ -1,6 +1,16 @@
 import React from "react";
 import "./Contact.css";
 
+// Import the PreviewLinkCard parts
+// Adjust path if your shadcn alias is different (e.g. @/components/ui/...)
+import {
+  PreviewLinkCard,
+  PreviewLinkCardTrigger,
+  PreviewLinkCardPortal,
+  PreviewLinkCardContent,
+  PreviewLinkCardImage,
+} from "@/components/animate-ui/primitives/radix/preview-link-card";
+
 function Contacts() {
   return (
     <section className="contact-page" id="contact">
@@ -46,37 +56,58 @@ function Contacts() {
             Best for ongoing work, opportunities, and sharing builds.
           </p>
 
+          {/* GitHub with preview */}
           <div className="social-row">
             <span className="social-tag">GitHub</span>
-            <a
-              href="https://github.com/BengalSapper007"
-              target="_blank"
-              rel="noreferrer"
-            >
-              github.com/BengalSapper007
-            </a>
+            <PreviewLinkCard href="https://github.com/BengalSapper007">
+              <PreviewLinkCardTrigger>
+                github.com/BengalSapper007
+              </PreviewLinkCardTrigger>
+              <PreviewLinkCardPortal>
+                <PreviewLinkCardContent
+                className="z-[99999] !important">
+                  <PreviewLinkCardImage alt="GitHub profile preview" />
+                </PreviewLinkCardContent>
+              </PreviewLinkCardPortal>
+            </PreviewLinkCard>
           </div>
 
+          {/* LinkedIn with preview */}
           <div className="social-row">
             <span className="social-tag">LinkedIn</span>
-            <a
-              href="https://www.linkedin.com/in/pinak-mukherjee-06799a284/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              linkedin.com/in/pinak-mukherjee
-            </a>
+            <PreviewLinkCard href="https://www.linkedin.com/in/pinak-mukherjee-06799a284/">
+              <PreviewLinkCardTrigger>
+                linkedin.com/in/pinak-mukherjee
+              </PreviewLinkCardTrigger>
+              <PreviewLinkCardPortal>
+                <PreviewLinkCardContent
+                className="z-[99999] !important">
+                  <PreviewLinkCardImage
+                  src="https://res.cloudinary.com/dpqbuo3tv/image/upload/v1770703497/Screenshot_2026-02-10_113108_wtxrec.png"
+                  alt="LinkedIn profile preview" />
+                </PreviewLinkCardContent>
+              </PreviewLinkCardPortal>
+            </PreviewLinkCard>
           </div>
 
+          {/* Instagram with preview */}
           <div className="social-row">
             <span className="social-tag">Instagram</span>
-            <a
-              href="https://www.instagram.com/p_i_n_a_k_007"
-              target="_blank"
-              rel="noreferrer"
-            >
-              @p_i_n_a_k_007
-            </a>
+            <PreviewLinkCard href="https://www.instagram.com/p_i_n_a_k_007">
+              <PreviewLinkCardTrigger>
+                @p_i_n_a_k_007
+              </PreviewLinkCardTrigger>
+              <PreviewLinkCardPortal>
+                <PreviewLinkCardContent
+                className="z-[99999] !important">
+                  <PreviewLinkCardImage 
+                  src="https://res.cloudinary.com/dpqbuo3tv/image/upload/v1770703558/Screenshot_2026-02-10_113039_stiz0x.png"
+                  alt="Instagram profile preview" 
+                  className="w-full object-cover rounded-md"  // ← key fix
+                  />
+                </PreviewLinkCardContent>
+              </PreviewLinkCardPortal>
+            </PreviewLinkCard>
           </div>
         </article>
 

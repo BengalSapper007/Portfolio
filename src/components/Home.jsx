@@ -27,13 +27,13 @@ function Home() {
 
           <div className="home-hero-actions">
             <button
-              className="home-btn primary"
+              className="home-btn primary cursor-target"
               onClick={() => navigate("/journey")}
             >
               View journey
             </button>
             <button
-              className="home-btn ghost"
+              className="home-btn ghost cursor-target"
               onClick={() => navigate("/journey")}
             >
               See projects
@@ -71,7 +71,7 @@ function Home() {
           </p>
         </header>
 
-        <div className="home-bento-grid">
+        <div className="home-bento-grid cursor-target">
           <article
             className="bento-tile bento-journey"
             onClick={() => navigate("/journey")}

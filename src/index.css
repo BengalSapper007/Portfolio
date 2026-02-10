@@ -9,10 +9,6 @@
 /* ---------- GLOBAL THEME & RESET ---------- */
 
 *,
-*::before,
-*::after {
-  cursor: none !important;
-}
 
 
 :root {
@@ -162,7 +158,7 @@ img {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #b88bff #050510; /* thumb track */
+  scrollbar-color: #b88bff #050510;
 }
 
 .bg-gradient-layer {

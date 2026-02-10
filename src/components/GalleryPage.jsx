@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./GalleryPage.css";
+import { ImageZoom, Image } from "./animate-ui/primitives/effects/image-zoom";
 
 const galleryItems = [
   {
@@ -88,7 +89,9 @@ function Gallery() {
       {selectedItem && (
         <div className="gal-detail" ref={detailRef}>
           <div className="gal-detail-img">
-            <img src={selectedItem.img} alt={selectedItem.title} />
+            <ImageZoom>
+              <Image src={selectedItem.img} alt={selectedItem.title} objectFit="contain" />
+            </ImageZoom>
           </div>
           <div className="gal-detail-text">
             <h3>{selectedItem.title}</h3>
