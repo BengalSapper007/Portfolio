@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Home.css";
+import { ImageZoom , Image } from "./animate-ui/primitives/effects/image-zoom";
 
 function Home() {
   const navigate = useNavigate();
@@ -11,10 +12,12 @@ function Home() {
       <section className="home-hero">
         <div className="home-hero-photo">
           <div className="home-hero-ring" />
-          <img
-            src="https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765459309/WhatsApp_Image_2025-12-03_at_00.11.39_1d5a7d74_ab9hpl.jpg"
-            alt="Pinak Mukherjee performing fire act"
-          />
+          <ImageZoom>
+            <Image
+              src="https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765459309/WhatsApp_Image_2025-12-03_at_00.11.39_1d5a7d74_ab9hpl.jpg"
+              alt="Pinak Mukherjee performing fire act"
+            />
+          </ImageZoom>
         </div>
 
         <div className="home-hero-text">

@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import { ImageZoom , Image } from "./animate-ui/primitives/effects/image-zoom";
 
 function About() {
   return (
@@ -7,10 +8,12 @@ function About() {
       <section className="aboutHero">
         <div className="aboutHero-photo">
           <div className="aboutHero-ring" />
-          <img
-            src="https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765459177/Gemini_Generated_Image_psbge9psbge9psbg_bogfg5.png"
-            alt="Pinak Mukherjee"
-          />
+          <ImageZoom>
+            <Image
+              src="https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765459177/Gemini_Generated_Image_psbge9psbge9psbg_bogfg5.png"
+              alt="Pinak Mukherjee"
+            />
+          </ImageZoom>
         </div>
 
         <div className="aboutHero-text">
