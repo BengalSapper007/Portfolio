@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Journey.css";
-import { ScrollProgressContainer , ScrollProgress } from "./animate-ui/primitives/animate/scroll-progress";
 
 /* =======================
    DATA
@@ -263,8 +262,6 @@ function Journey() {
     ));
 
   return (
-    <ScrollProgressContainer>
-      <ScrollProgress />
     <section className="journey-page">
       <header className="journey-header">
         <h2>Journey So Far</h2>
@@ -403,7 +400,6 @@ function Journey() {
         )}
       </div>
     </section>
-    </ScrollProgressContainer>
   );
 }
 
