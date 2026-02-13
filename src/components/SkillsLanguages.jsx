@@ -83,7 +83,7 @@ const languages = [
     id: "tamil", 
     name: "Tamil", 
     level: "Intermediate", 
-    detail: "I picked up Tamil while living and studying in Tamil Nadu, learning it through real conversations, hostel life, and cultural experiences. I may not be perfect, but I understand enough to feel connected to the environment and the people around me." 
+    detail: "I picked up Tamil while living and studying in Tamil Nadu, learning it through real conversations and cultural experiences. I may not be perfect, but I understand enough to feel connected to the environment and the people around me." 
   },
   { 
     id: "german", 
