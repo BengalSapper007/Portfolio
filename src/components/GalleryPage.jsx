@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import "./GalleryPage.css";
 import { ImageZoom, Image } from "./animate-ui/primitives/effects/image-zoom";
+import ScrollToTop from "./ScrollToTop";
+import { AnimatePresence, motion } from "motion/react";
 
 const galleryItems = [
   {
@@ -35,72 +37,102 @@ const galleryItems = [
     id: 5,
     title: "Published Author",
     img: "https://res.cloudinary.com/dpqbuo3tv/image/upload/v1765459621/image_2025-12-11_185656775_szcnih.png",
-    description:
-      "I am celebrating the publication of my first poetry book, Seasons Within, a work that embodies my passion for creative writing and personal expression. This collection draws deeply from lived experiences and moments of introspection, marking a meaningful milestone in my artistic journey. Through Seasons Within, I bring forth a tapestry of emotions and reflections, showcasing my commitment to crafting resonant poetic narratives. The book adds a rich literary dimension to my growing portfolio and stands as a testament to the creative path I continue to explore.",
+    description: [
+      "I am celebrating the publication of my first poetry book, Seasons Within, a work that embodies my passion for creative writing and personal expression. This collection draws deeply from lived experiences and moments of introspection, marking a meaningful milestone in my artistic journey.",
+      "Through Seasons Within, I bring forth a tapestry of emotions and reflections, showcasing my commitment to crafting resonant poetic narratives.",
+      "The book adds a rich literary dimension to my growing portfolio and stands as a testament to the creative path I continue to explore.",
+      <span key="links">
+        Ebook: <a href="https://ebooks.bookleafpub.com/product-page/seasons-within" target="_blank" rel="noopener noreferrer">Link</a><br />
+        Paperback: <a href="https://www.amazon.in/Seasons-Within-Journey-Through-Time/dp/B0G3QLV18B/ref=sr_1_1?sr=8-1" target="_blank" rel="noopener noreferrer">Amazon</a>
+      </span>,
+    ],
   },
 ];
 
-function Gallery() {
+export default function Gallery() {
   const [selectedId, setSelectedId] = useState(null);
   const detailRef = useRef(null);
 
-  const selectedItem =
-    galleryItems.find((g) => g.id === selectedId) || null;
+  const selectedItem = galleryItems.find((item) => item.id === selectedId) ?? null;
 
-  const handleClick = (id) => {
-    const next = selectedId === id ? null : id;
-    setSelectedId(next);
-    if (next && detailRef.current) {
-      detailRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+  const handleSelect = (id) => {
+    const nextId = selectedId === id ? null : id;
+    setSelectedId(nextId);
   };
+
 
   return (
     <section className="gal" id="gallery">
+      <ScrollToTop />
       <header className="gal-header">
         <h2>Gallery</h2>
         <div className="gal-underline" />
-        <p>
-          Quick previews above, and a focused story panel below when you click
-          any highlight.
-        </p>
+        <p>Click any card to read the full story below.</p>
       </header>
-
       <div className="gal-grid">
-        {galleryItems.map((item) => (
-          <button
-            key={item.id}
-            className={`gal-mini-card ${
-              selectedId === item.id ? "gal-mini-active" : ""
-            }`}
-            onClick={() => handleClick(item.id)}
-          >
-            <div className="gal-mini-thumb">
-              <img src={item.img} alt={item.title} />
-            </div>
-            <span className="gal-mini-title">{item.title}</span>
-          </button>
-        ))}
+        {galleryItems.map((item) => {
+          const isActive = selectedId === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              className={`gal-mini-card ${isActive ? "gal-mini-active" : ""}`}
+              onClick={() => handleSelect(item.id)}
+              aria-pressed={isActive}
+              aria-label={`Select ${item.title}`}
+            >
+              <div className="gal-mini-thumb">
+                <img
+                  src={item.img}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </div>
+              <span className="gal-mini-title">{item.title}</span>
+            </button>
+          );
+        })}
       </div>
 
-      {selectedItem && (
-        <div className="gal-detail" ref={detailRef}>
-          <div className="gal-detail-img">
-            <ImageZoom>
-              <Image src={selectedItem.img} alt={selectedItem.title} objectFit="contain" />
-            </ImageZoom>
-          </div>
-          <div className="gal-detail-text">
-            <h3>{selectedItem.title}</h3>
-            <p>{selectedItem.description}</p>
-          </div>
-        </div>
-      )}
+      <AnimatePresence mode="wait">
+        {selectedItem && (
+          <motion.article
+            className="gal-detail"
+            ref={detailRef}
+            key={selectedItem.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div className="gal-detail-img">
+              <ImageZoom>
+                <Image
+                  src={selectedItem.img}
+                  alt={selectedItem.title}
+                  className="detail-img"
+                  objectFit="contain"
+                />
+              </ImageZoom>
+            </div>
+
+            <div className="gal-detail-text">
+              <h3>{selectedItem.title}</h3>
+
+              <div className="gallery-description">
+                {Array.isArray(selectedItem.description) ? (
+                  selectedItem.description.map((paragraph, idx) => (
+                    <p key={idx}>{paragraph}</p>
+                  ))
+                ) : (
+                  <p>{selectedItem.description}</p>
+                )}
+              </div>
+            </div>
+          </motion.article>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
-
-export default Gallery;
